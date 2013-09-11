@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
-qtHaveModule(widgets): SUBDIRS += help designer linguist uitools assistant
+!linguistonly:qtHaveModule(widgets): SUBDIRS += help designer assistant
+qtHaveModule(widgets): SUBDIRS += linguist uitools
 
 winrt: SUBDIRS -= assistant designer

@@ -4,19 +4,21 @@ qtHaveModule(widgets) {
     no-png {
         message("Some graphics-related tools are unavailable without PNG support")
     } else {
-        SUBDIRS = assistant \
+        !linguistonly {
+            SUBDIRS = assistant \
                   pixeltool \
-                  qtestlib \
-                  designer
+                  qtestlib
+        }
+        SUBDIRS += designer
 
         linguist.depends = designer
     }
 }
 
 SUBDIRS += linguist \
-    qdoc \
     qtplugininfo
-if(!android|android_app):!ios: SUBDIRS += qtpaths
+!linguistonly: SUBDIRS +=  qdoc
+if(!android|android_app):!ios:!linguistonly: SUBDIRS += qtpaths
 
 mac {
     SUBDIRS += macdeployqt
@@ -26,11 +28,11 @@ android {
     SUBDIRS += androiddeployqt
 }
 
-qtHaveModule(dbus): SUBDIRS += qdbus
+!linguistonly:qtHaveModule(dbus): SUBDIRS += qdbus
 
 win32|winrt:SUBDIRS += windeployqt
 winrt:SUBDIRS += winrtrunner
-qtHaveModule(gui):!android:!ios:!qnx:!wince*:!winrt*:SUBDIRS += qtdiag
+!linguistonly:qtHaveModule(gui):!android:!ios:!qnx:!wince*:!winrt*:SUBDIRS += qtdiag
 
 qtNomakeTools( \
     pixeltool \
