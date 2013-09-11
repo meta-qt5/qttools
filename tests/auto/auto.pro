@@ -1,15 +1,17 @@
 TEMPLATE=subdirs
-SUBDIRS=\
-    linguist \
-    qhelpcontentmodel \
-    qhelpenginecore \
-    qhelpgenerator \
-    qhelpindexmodel \
-    qhelpprojectdata \
-    cmake \
-    installed_cmake \
-    qtdiag \
-    windeployqt
+!linguistonly {
+    SUBDIRS=\
+        linguist \
+        qhelpcontentmodel \
+        qhelpenginecore \
+        qhelpgenerator \
+        qhelpindexmodel \
+        qhelpprojectdata \
+        cmake \
+        installed_cmake \
+        qtdiag \
+        windeployqt
+}
 
 installed_cmake.depends = cmake
 
