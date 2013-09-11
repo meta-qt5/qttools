@@ -3,7 +3,7 @@ SUBDIRS  = \
     lrelease \
     lupdate \
     lconvert
-!no-png:qtHaveModule(widgets): SUBDIRS += linguist
+!linguistonly:!no-png:qtHaveModule(widgets): SUBDIRS += linguist
 
 qtNomakeTools( \
     linguist \
