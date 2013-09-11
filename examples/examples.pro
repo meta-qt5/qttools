@@ -1,3 +1,4 @@
 TEMPLATE = subdirs
-!isEmpty(QT.widgets.name): SUBDIRS += help designer linguist uitools assistant
+!linguistonly:!isEmpty(QT.widgets.name): SUBDIRS += help designer assistant
+!isEmpty(QT.widgets.name): SUBDIRS += linguist uitools
 

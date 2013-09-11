@@ -1,10 +1,12 @@
 TEMPLATE = subdirs
 CONFIG += ordered
 
-SUBDIRS = \
-    uitools \
-    lib \
-    components \
-    designer
+!linguistonly {
+    SUBDIRS = \
+        lib \
+        components \
+        designer
+}
+SUBDIRS += uitools
 
-CONFIG(shared,shared|static):SUBDIRS += plugins
+!linguistonly:CONFIG(shared,shared|static):SUBDIRS += plugins

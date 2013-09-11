@@ -1,13 +1,15 @@
 TEMPLATE=subdirs
-SUBDIRS=\
-    linguist \
-    host.pro \
-    qhelpcontentmodel \
-    qhelpenginecore \
-    qhelpgenerator \
-    qhelpindexmodel \
-    qhelpprojectdata \
-    cmake
+!linguistonly {
+    SUBDIRS=\
+        linguist \
+        host.pro \
+        qhelpcontentmodel \
+        qhelpenginecore \
+        qhelpgenerator \
+        qhelpindexmodel \
+        qhelpprojectdata \
+        cmake
+}
 
 # These tests don't make sense for cross-compiled builds
 cross_compile:SUBDIRS -= host.pro

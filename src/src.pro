@@ -5,10 +5,12 @@ CONFIG += ordered
     no-png {
         message("Some graphics-related tools are unavailable without PNG support")
     } else {
-        SUBDIRS = assistant \
+        !linguistonly { 
+            SUBDIRS = assistant \
                   pixeltool \
-                  qtestlib \
-                  designer
+                  qtestlib
+        }
+        SUBDIRS += designer
 #    unix:!mac:!embedded:!qpa:SUBDIRS += qtconfig
     }
 }
@@ -21,7 +23,7 @@ mac {
 
 embedded:SUBDIRS += kmap2qmap
 
-contains(QT_CONFIG, dbus):SUBDIRS += qdbus
+!linguistonly:contains(QT_CONFIG, dbus):SUBDIRS += qdbus
 # We don't need these command line utilities on embedded platforms.
 embedded: SUBDIRS += makeqpf
 
