@@ -1,18 +1,20 @@
 TEMPLATE = subdirs
 
-SUBDIRS = \
-    uitools \
-    lib \
-    components \
-    designer
+!linguistonly {
+    SUBDIRS = \
+        lib \
+        components \
+        designer
+}
+SUBDIRS += uitools
 
-contains(QT_CONFIG, shared): SUBDIRS += plugins
+!linguistonly:contains(QT_CONFIG, shared): SUBDIRS += plugins
 
 components.depends = lib
 designer.depends = components
 plugins.depends = lib
 
-qtNomakeTools( \
+!linguistonly:qtNomakeTools( \
     lib \
     components \
     designer \

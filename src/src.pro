@@ -4,10 +4,12 @@ qtHaveModule(widgets) {
     no-png {
         message("Some graphics-related tools are unavailable without PNG support")
     } else {
-        SUBDIRS = assistant \
+        !linguistonly { 
+            SUBDIRS = assistant \
                   pixeltool \
-                  qtestlib \
-                  designer
+                  qtestlib
+        }
+        SUBDIRS += designer
 #    unix:!mac:!embedded:!qpa:SUBDIRS += qtconfig
 
         linguist.depends = designer
@@ -25,7 +27,7 @@ android {
     SUBDIRS += androiddeployqt
 }
 
-qtHaveModule(dbus): SUBDIRS += qdbus
+!linguistonly:qtHaveModule(dbus): SUBDIRS += qdbus
 
 win32|winrt:SUBDIRS += windeployqt
 
