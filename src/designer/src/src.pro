@@ -1,10 +1,12 @@
 TEMPLATE = subdirs
 CONFIG += ordered
 
-SUBDIRS = \
-    uitools \
-    lib \
-    components \
-    designer
+!linguistonly {
+    SUBDIRS = \
+        lib \
+        components \
+        designer
+}
+SUBDIRS += uitools
 
-contains(QT_CONFIG, shared): SUBDIRS += plugins
+!linguistonly:contains(QT_CONFIG, shared): SUBDIRS += plugins
