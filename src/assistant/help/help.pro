@@ -59,3 +59,5 @@ HEADERS += qhelpenginecore.h \
 # access to clucene
 HEADERS += qhelpsearchindexwriter_clucene_p.h \
     qhelpsearchindexreader_clucene_p.h
+
+LIBS += -lQt5CLucene
