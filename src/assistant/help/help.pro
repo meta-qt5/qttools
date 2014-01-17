@@ -60,3 +60,5 @@ HEADERS += qhelpsearchindexwriter_clucene_p.h \
     qhelpsearchindexreader_clucene_p.h
 
 load(qt_module)
+
+LIBS += -lQt5CLucene
