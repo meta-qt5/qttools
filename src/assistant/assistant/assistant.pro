@@ -1,4 +1,4 @@
-false:qtHaveModule(webkitwidgets):!contains(QT_CONFIG, static) {
+false:qtHaveModule(webkitwidgets):!contains(QT_CONFIG, static):!contains(CONFIG, noqtwebkit) {
     # FIXME: currently broken
     BROWSER = qtwebkit
 } else {
@@ -76,7 +76,7 @@ SOURCES += aboutdialog.cpp \
     openpagesmanager.cpp \
     openpagesswitcher.cpp
 
-equals(BROWSER, "qtwebkit") {
+equals(BROWSER, "qtwebkit"):!contains(CONFIG, noqtwebkit) {
     DEFINES += BROWSER_QTWEBKIT
     QT += webkitwidgets
     SOURCES += helpviewer_qwv.cpp
