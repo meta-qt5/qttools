@@ -1,4 +1,4 @@
-qtHaveModule(webkitwidgets):!contains(QT_CONFIG, static) {
+qtHaveModule(webkitwidgets):!contains(QT_CONFIG, static):!contains(QT_CONFIG, noqtwebkit) {
     QT += webkitwidgets
 } else {
     DEFINES += QT_NO_WEBKIT
