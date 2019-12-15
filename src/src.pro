@@ -25,7 +25,7 @@ qtConfig(library) {
 
 include($$OUT_PWD/qdoc/qtqdoc-config.pri)
 QT_FOR_CONFIG += qdoc-private
-qtConfig(qdoc): qtConfig(thread): SUBDIRS += qdoc
+qtConfig(qdoc): qtConfig(thread):!contains(CONFIG, noqdoc): SUBDIRS += qdoc
 
 !android|android_app: SUBDIRS += qtpaths
 
